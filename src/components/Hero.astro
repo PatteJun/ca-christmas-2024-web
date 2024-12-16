@@ -1,0 +1,96 @@
+---
+---
+
+<section class="hero">
+  <div class="content">
+    <h1>MERRY<br>CHRISTMAS</h1>
+    <p>Celebrate the season of joy with our special holiday collection. Find the perfect gifts for your loved ones.</p>
+    <button class="cta">BUY NOW</button>
+  </div>
+  <div class="image">
+    <div class="logo">
+      <img src="https://www.carauktion.ch/img/logo@2x.png" alt="Car Auktion Logo" />
+    </div>
+    <dotlottie-player 
+      src="https://lottie.host/f79752c1-2e24-48c3-97e1-175e5fe438b2/MwIA5KtOCG.lottie" 
+      background="transparent" 
+      speed="1" 
+      loop 
+      autoplay
+    ></dotlottie-player>
+  </div>
+</section>
+
+<style>
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  .content {
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    background: var(--brand-red);
+  }
+
+  h1 {
+    color: white;
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    max-width: 80%;
+  }
+
+  .cta {
+    background: white;
+    color: var(--brand-red);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: fit-content;
+    transition: transform 0.3s ease;
+  }
+
+  .cta:hover {
+    transform: scale(1.05);
+  }
+
+  .image {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+  }
+
+  .logo {
+    position: absolute;
+    top: 2rem;
+    height: 40px;
+  }
+
+  .logo img {
+    height: 100%;
+    width: auto;
+  }
+
+  .image dotlottie-player {
+    width: 400px;
+    height: 400px;
+  }
+</style>
