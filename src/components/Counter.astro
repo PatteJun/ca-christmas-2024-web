@@ -1,0 +1,85 @@
+---
+interface Props {
+  end: number;
+  duration: number;
+  separator?: string;
+}
+
+const { end, duration, separator = "'" } = Astro.props;
+---
+
+<span class="counter" data-end={end} data-duration={duration} data-separator={separator}>0</span>
+
+<script>
+  class Counter {
+    element: HTMLElement;
+    end: number;
+    duration: number;
+    separator: string;
+    startTime: number | null = null;
+    frame: number | null = null;
+
+    constructor(element: HTMLElement) {
+      this.element = element;
+      this.end = parseInt(element.dataset.end || "0");
+      this.duration = parseInt(element.dataset.duration || "2000");
+      this.separator = element.dataset.separator || "'";
+      this.animate = this.animate.bind(this);
+      
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            this.start();
+            observer.disconnect();
+          }
+        },
+        { threshold: 0.1 }
+      );
+      
+      observer.observe(element);
+    }
+
+    formatNumber(num: number): string {
+      return Math.round(num)
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, this.separator);
+    }
+
+    animate(currentTime: number) {
+      if (!this.startTime) this.startTime = currentTime;
+      const progress = (currentTime - this.startTime) / this.duration;
+
+      if (progress < 1) {
+        const currentValue = this.end * this.easeOutQuart(progress);
+        this.element.textContent = this.formatNumber(currentValue);
+        this.frame = requestAnimationFrame(this.animate);
+      } else {
+        this.element.textContent = this.formatNumber(this.end);
+        cancelAnimationFrame(this.frame!);
+      }
+    }
+
+    easeOutQuart(x: number): number {
+      return 1 - Math.pow(1 - x, 4);
+    }
+
+    start() {
+      this.frame = requestAnimationFrame(this.animate);
+    }
+  }
+
+  document.querySelectorAll('.counter').forEach(counter => {
+    new Counter(counter as HTMLElement);
+  });
+</script>
+
+<style>
+  .counter {
+    font-weight: 800;
+    font-size: inherit;
+    background: linear-gradient(135deg, var(--brand-red) 0%, #ff4d4d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+</style>

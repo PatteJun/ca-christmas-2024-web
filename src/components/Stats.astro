@@ -1,0 +1,135 @@
+---
+import Counter from './Counter.astro';
+---
+
+<section class="stats">
+  <div class="stat-container">
+    <div class="stat-content">
+      <div class="bell-animation">
+        <dotlottie-player 
+          src="https://lottie.host/dc780b00-2b8d-4aab-bde1-b28fa12f4545/esrPBdVAwJ.lottie" 
+          background="transparent" 
+          speed="1" 
+          loop 
+          autoplay
+        ></dotlottie-player>
+      </div>
+      <div class="number">
+        <Counter end={43233} duration={2000} />
+      </div>
+      <h2>Cars Sold</h2>
+      <p>Successfully auctioned vehicles in 2023</p>
+      <button class="next-highlight">
+        Next Highlight
+        <span class="arrow">→</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .stats {
+    background: linear-gradient(135deg, #f0f4f7 0%, #e8f0f5 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stat-container {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .stat-content {
+    padding: 4rem 3rem;
+    background: white;
+    border-radius: 1.5rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+    border: 2px solid #e8e8e8;
+    position: relative;
+  }
+
+  .stat-content:hover {
+    transform: translateY(-10px);
+  }
+
+  .bell-animation {
+    width: 300px;
+    height: 300px;
+    margin: -80px auto -40px;
+  }
+
+  .number {
+    font-size: 5.5rem;
+    color: var(--brand-red);
+    margin-bottom: 1rem;
+    line-height: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    font-size: 2.2rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .next-highlight {
+    background: var(--brand-red);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .next-highlight:hover {
+    transform: translateX(5px);
+    background: #c01520;
+  }
+
+  .arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .next-highlight:hover .arrow {
+    transform: translateX(3px);
+  }
+
+  @media (max-width: 768px) {
+    .bell-animation {
+      width: 200px;
+      height: 200px;
+      margin: -40px auto -20px;
+    }
+
+    .number {
+      font-size: 4rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+    }
+  }
+</style>

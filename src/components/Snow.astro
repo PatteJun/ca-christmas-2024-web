@@ -1,0 +1,54 @@
+---
+---
+
+<div class="snow-container">
+    {Array.from({ length: 50 }).map((_, i) => (
+      <div class="snow" style={`--delay: ${Math.random() * 5}s; --duration: ${Math.random() * 3 + 2}s; --position: ${Math.random() * 100}vw;`}></div>
+    ))}
+  </div>
+  
+  <style>
+    .snow-container {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 100;
+    }
+  
+    .snow {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      top: -8px;
+      animation: fall var(--duration) linear infinite;
+      left: var(--position);
+      animation-delay: var(--delay);
+    }
+  
+    @keyframes fall {
+      0% {
+        transform: translateY(-10px) scale(0);
+        opacity: 1;
+      }
+      
+      10% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+  
+      90% {
+        opacity: 0.8;
+      }
+  
+      100% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+      }
+    }
+  </style>
