@@ -2,7 +2,7 @@
 import Counter from './Counter.astro';
 ---
 
-<section class="growth">
+<section class="growth" id="growth">
   <div class="growth-content">
     <div class="chart-animation">
       <dotlottie-player 
@@ -19,7 +19,7 @@ import Counter from './Counter.astro';
     </div>
     <h2>Growth in Transaction Volume</h2>
     <p>Thanks to your trust and partnership, we've achieved sustainable growth together in 2024.</p>
-    <button class="next-highlight">
+    <button class="next-highlight" onclick="document.getElementById('event').scrollIntoView({behavior: 'smooth'})">
       Next Highlight
       <span class="arrow">→</span>
     </button>

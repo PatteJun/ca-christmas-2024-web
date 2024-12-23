@@ -1,27 +1,55 @@
 ---
 ---
 
-<section class="appreciation">
-    <div class="appreciation-content">
-      <h2>Thank You for Your Trust</h2>
-      <p>As we celebrate our 20th anniversary, we're grateful for the trust you've placed in us. Your support has been instrumental in creating a thriving automotive marketplace that serves all our community members – buyers, sellers, and partners alike.</p>
-      <p>Here's to many more years of serving you with dedication and excellence.</p>
+<section class="appreciation" id="appreciation">
+    <div class="content">
+      <div class="text-content">
+        <h2>You Are Our Tree Topper</h2>
+        <p>Just as Santa places the shining star atop the Christmas tree, you are the highlight that completes our story. Your trust and partnership have been the crowning achievement of our 20-year journey.</p>
+        <p>Together, we've created something truly special in the automotive world. Thank you for being our brightest star.</p>
+      </div>
+    </div>
+    <div class="animation-container">
+      <dotlottie-player 
+        src="https://lottie.host/070ce607-0ad5-4852-9623-c23c2933e7c9/QRfGgZBrh9.lottie" 
+        background="transparent" 
+        speed="1" 
+        loop 
+        autoplay
+      ></dotlottie-player>
     </div>
   </section>
-  
+    
   <style>
     .appreciation {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+    }
+  
+    .content {
       background: var(--brand-red);
-      min-height: 50vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 4rem 2rem;
-      text-align: center;
+      padding: 4rem;
     }
   
-    .appreciation-content {
-      max-width: 800px;
+    .text-content {
+      max-width: 600px;
+    }
+  
+    .animation-container {
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+  
+    .animation-container dotlottie-player {
+      width: 400px;
+      height: 400px;
     }
   
     h2 {
@@ -36,5 +64,24 @@
       font-size: 1.2rem;
       line-height: 1.6;
       margin-bottom: 1rem;
+    }
+  
+    @media (max-width: 768px) {
+      .appreciation {
+        grid-template-columns: 1fr;
+      }
+  
+      .content {
+        padding: 2rem;
+      }
+  
+      h2 {
+        font-size: 2rem;
+      }
+  
+      .animation-container dotlottie-player {
+        width: 300px;
+        height: 300px;
+      }
     }
   </style>
