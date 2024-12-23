@@ -1,0 +1,31 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import Snow from '../../components/Snow.astro';
+import Growth from '../../components/Growth.astro';
+import Event from '../../components/Event.astro';
+import Partnerships from '../../components/Partnerships.astro';
+import Security from '../../components/Security.astro';
+import Appreciation from '../../components/Appreciation.astro';
+import { getLangFromUrl } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'fr' } },
+    { params: { lang: 'it' } },
+    { params: { lang: 'en' } },
+  ];
+}
+---
+
+<Layout title="CARAUKTION - 20 Years Together">
+  <Snow />
+  <Hero />
+  <Growth />
+  <Event />
+  <Partnerships />
+  <Security />
+  <Appreciation />
+</Layout>

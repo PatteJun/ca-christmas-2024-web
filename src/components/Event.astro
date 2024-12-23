@@ -1,4 +1,8 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section class="event" id="event">
@@ -13,8 +17,8 @@
       ></dotlottie-player>
     </div>
     
-    <h2>Growing Together</h2>
-    <p>This year marked a significant expansion in our community. We welcomed more private sellers and new partnerships, enriching our marketplace with diverse automotive offerings for all our valued customers.</p>
+    <h2>{t.event.title}</h2>
+    <p>{t.event.description}</p>
     
     <div class="gallery">
       <div class="gallery-grid">
@@ -29,7 +33,7 @@
 
     <div class="button-container">
       <button class="next-highlight" onclick="document.getElementById('partnerships').scrollIntoView({behavior: 'smooth'})">
-        Next Highlight
+        {t.event.nextHighlight}
         <span class="arrow">→</span>
       </button>
     </div>

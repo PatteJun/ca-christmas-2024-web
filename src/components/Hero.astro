@@ -1,11 +1,15 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section class="hero" id="hero">
   <div class="content">
-    <h1>20 YEARS<br>TOGETHER</h1>
-    <p>For two decades, we've been privileged to serve our automotive community. Thank you for being part of this remarkable journey.</p>
-    <button class="cta" onclick="document.getElementById('growth').scrollIntoView({behavior: 'smooth'})">EXPLORE OUR JOURNEY</button>
+    <h1>{t.hero.title}</h1>
+    <p>{t.hero.subtitle}</p>
+    <button class="cta" onclick="document.getElementById('growth').scrollIntoView({behavior: 'smooth'})">{t.hero.cta}</button>
   </div>
   <div class="image">
     <div class="logo">
@@ -43,6 +47,7 @@
     font-size: 4rem;
     font-weight: 700;
     line-height: 1.1;
+    white-space: pre-line;
   }
 
   p {

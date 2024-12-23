@@ -1,5 +1,9 @@
 ---
 import Counter from './Counter.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section class="growth" id="growth">
@@ -17,10 +21,10 @@ import Counter from './Counter.astro';
       <Counter end={20} duration={2000} />
       <span class="percent">%</span>
     </div>
-    <h2>Growth in Transaction Volume</h2>
-    <p>Thanks to your trust and partnership, we've achieved sustainable growth together in 2024.</p>
+    <h2>{t.growth.title}</h2>
+    <p>{t.growth.description}</p>
     <button class="next-highlight" onclick="document.getElementById('event').scrollIntoView({behavior: 'smooth'})">
-      Next Highlight
+      {t.growth.nextHighlight}
       <span class="arrow">→</span>
     </button>
   </div>

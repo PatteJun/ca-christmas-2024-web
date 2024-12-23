@@ -1,0 +1,140 @@
+---
+const { class: className } = Astro.props;
+const url = Astro.url;
+const currentPath = url.pathname;
+
+const languages = [
+  { code: 'de', name: 'DE' },
+  { code: 'fr', name: 'FR' },
+  { code: 'it', name: 'IT' },
+  { code: 'en', name: 'EN' }
+];
+
+function getPathForLang(lang: string) {
+  if (lang === 'de') return '/';
+  return `/${lang}`;
+}
+---
+
+<div class={`language-selector ${className}`}>
+  <button class="toggle-btn" aria-label="Toggle language menu">
+    {languages.find(lang => currentPath === getPathForLang(lang.code))?.name || 'DE'}
+  </button>
+  <div class="lang-menu">
+    {languages.map((lang) => (
+      <a 
+        href={getPathForLang(lang.code)}
+        class={`lang-link ${currentPath === getPathForLang(lang.code) ? 'active' : ''}`}
+      >
+        {lang.name}
+      </a>
+    ))}
+  </div>
+</div>
+
+<style>
+  .language-selector {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    font-size: 0.875rem;
+  }
+
+  .toggle-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    backdrop-filter: blur(8px);
+    transition: all 0.2s ease;
+  }
+
+  .toggle-btn:hover {
+    background: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .lang-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0.5rem;
+    background: white;
+    border-radius: 0.75rem;
+    padding: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+  }
+
+  .language-selector:hover .lang-menu,
+  .language-selector:focus-within .lang-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .lang-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+    text-align: center;
+    min-width: 80px;
+  }
+
+  .lang-link:hover {
+    background: #f5f5f5;
+  }
+
+  .lang-link.active {
+    background: var(--brand-red);
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    .language-selector {
+      top: auto;
+      bottom: 1rem;
+    }
+
+    .toggle-btn {
+      background: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .lang-menu {
+      bottom: 100%;
+      top: auto;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+  }
+</style>
+
+<script>
+  // Add touch support for mobile devices
+  const langSelector = document.querySelector('.language-selector');
+  let touchTimeout: number;
+
+  langSelector?.addEventListener('touchstart', () => {
+    touchTimeout = setTimeout(() => {
+      langSelector.classList.add('touch-active');
+    }, 200);
+  });
+
+  langSelector?.addEventListener('touchend', () => {
+    clearTimeout(touchTimeout);
+    setTimeout(() => {
+      langSelector.classList.remove('touch-active');
+    }, 2000);
+  });
+</script>
