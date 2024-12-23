@@ -1,0 +1,149 @@
+---
+---
+
+<section class="security">
+    <div class="security-content">
+      <div class="shield-animation">
+        <dotlottie-player 
+          src="https://lottie.host/fe8d0182-6848-4b12-831c-55854cbac8be/MRSxO744cg.lottie" 
+          background="transparent" 
+          speed="1" 
+          loop 
+          autoplay
+        ></dotlottie-player>
+      </div>
+      
+      <h2>Enhanced Security</h2>
+      <p>Your trust deserves the highest level of protection. We've strengthened our platform's security to ensure safe and reliable transactions for every member of our community.</p>
+      
+      <div class="security-features">
+        <div class="security-feature">
+          <div class="icon">🔒</div>
+          <h3>Advanced Protection</h3>
+          <p>State-of-the-art security measures to protect your transactions</p>
+        </div>
+        <div class="security-feature">
+          <div class="icon">✓</div>
+          <h3>Verified Processes</h3>
+          <p>Enhanced verification systems for buyer and seller peace of mind</p>
+        </div>
+      </div>
+  
+      <button class="next-highlight">
+        Next Highlight
+        <span class="arrow">→</span>
+      </button>
+    </div>
+  </section>
+  
+  <style>
+    .security {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f0f4f7 0%, #e8f0f5 100%);
+      padding: 4rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .security-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+  
+    .shield-animation {
+      width: 300px;
+      height: 300px;
+      margin: -80px auto -40px;
+    }
+  
+    h2 {
+      font-size: 2.8rem;
+      color: var(--text-color);
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--brand-red) 0%, #ff4d4d 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+    }
+  
+    p {
+      font-size: 1.1rem;
+      color: #666;
+      line-height: 1.5;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+  
+    .security-features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin: 3rem auto;
+      max-width: 900px;
+    }
+  
+    .security-feature {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+  
+    .icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+  
+    h3 {
+      color: var(--text-color);
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+  
+    .next-highlight {
+      background: var(--brand-red);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  
+    .next-highlight:hover {
+      transform: translateX(5px);
+      background: #c01520;
+    }
+  
+    .arrow {
+      transition: transform 0.3s ease;
+    }
+  
+    .next-highlight:hover .arrow {
+      transform: translateX(3px);
+    }
+  
+    @media (max-width: 768px) {
+      .security-features {
+        grid-template-columns: 1fr;
+      }
+  
+      h2 {
+        font-size: 2rem;
+      }
+  
+      .shield-animation {
+        width: 200px;
+        height: 200px;
+        margin: -40px auto -20px;
+      }
+    }
+  </style>

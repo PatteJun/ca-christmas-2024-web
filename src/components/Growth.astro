@@ -1,0 +1,109 @@
+---
+import Counter from './Counter.astro';
+---
+
+<section class="growth">
+  <div class="growth-content">
+    <div class="chart-animation">
+      <dotlottie-player 
+        src="https://lottie.host/dc780b00-2b8d-4aab-bde1-b28fa12f4545/esrPBdVAwJ.lottie" 
+        background="transparent" 
+        speed="1" 
+        loop 
+        autoplay
+      ></dotlottie-player>
+    </div>
+    <div class="stat">
+      <Counter end={20} duration={2000} />
+      <span class="percent">%</span>
+    </div>
+    <h2>Growth in Transaction Volume</h2>
+    <p>Thanks to your trust and partnership, we've achieved sustainable growth together in 2024.</p>
+    <button class="next-highlight">
+      Next Highlight
+      <span class="arrow">→</span>
+    </button>
+  </div>
+</section>
+
+<style>
+  .growth {
+    background: linear-gradient(135deg, #f0f4f7 0%, #e8f0f5 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+  }
+
+  .growth-content {
+    text-align: center;
+    max-width: 600px;
+    background: white;
+    padding: 4rem 3rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .chart-animation {
+    width: 300px;
+    height: 300px;
+    margin: -80px auto -40px;
+  }
+
+  .stat {
+    font-size: 5.5rem;
+    margin-bottom: 1rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .percent {
+    color: var(--brand-red);
+    font-weight: 800;
+  }
+
+  h2 {
+    font-size: 2.2rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .next-highlight {
+    background: var(--brand-red);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .next-highlight:hover {
+    transform: translateX(5px);
+    background: #c01520;
+  }
+
+  .arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .next-highlight:hover .arrow {
+    transform: translateX(3px);
+  }
+</style>

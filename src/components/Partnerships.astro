@@ -1,0 +1,149 @@
+---
+---
+
+<section class="partnerships">
+    <div class="partnerships-content">
+      <div class="handshake-animation">
+        <dotlottie-player 
+          src="https://lottie.host/60aa363b-d349-4fd2-8203-c55fae127f3a/1VbpgHfobg.lottie" 
+          background="transparent" 
+          speed="1" 
+          loop 
+          autoplay
+        ></dotlottie-player>
+      </div>
+      
+      <h2>Expanding Horizons</h2>
+      <p>This year, we proudly welcomed private sellers to our marketplace, enriching our portfolio with unique vehicles and personal stories. Together with our trusted partners, we're creating more opportunities for everyone in our automotive community.</p>
+      
+      <div class="features">
+        <div class="feature">
+          <div class="icon">🤝</div>
+          <h3>Private Sellers Welcome</h3>
+          <p>New opportunities for individual car owners to reach qualified buyers</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🚗</div>
+          <h3>Diverse Selection</h3>
+          <p>Expanded vehicle portfolio catering to various preferences and needs</p>
+        </div>
+      </div>
+  
+      <button class="next-highlight">
+        Next Highlight
+        <span class="arrow">→</span>
+      </button>
+    </div>
+  </section>
+  
+  <style>
+    .partnerships {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+      padding: 4rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .partnerships-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+  
+    .handshake-animation {
+      width: 300px;
+      height: 300px;
+      margin: -80px auto -40px;
+    }
+  
+    h2 {
+      font-size: 2.8rem;
+      color: var(--text-color);
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--brand-red) 0%, #ff4d4d 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+    }
+  
+    p {
+      font-size: 1.1rem;
+      color: #666;
+      line-height: 1.5;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+  
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin: 3rem auto;
+      max-width: 900px;
+    }
+  
+    .feature {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+  
+    .icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+  
+    h3 {
+      color: var(--text-color);
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+  
+    .next-highlight {
+      background: var(--brand-red);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  
+    .next-highlight:hover {
+      transform: translateX(5px);
+      background: #c01520;
+    }
+  
+    .arrow {
+      transition: transform 0.3s ease;
+    }
+  
+    .next-highlight:hover .arrow {
+      transform: translateX(3px);
+    }
+  
+    @media (max-width: 768px) {
+      .features {
+        grid-template-columns: 1fr;
+      }
+  
+      h2 {
+        font-size: 2rem;
+      }
+  
+      .handshake-animation {
+        width: 200px;
+        height: 200px;
+        margin: -40px auto -20px;
+      }
+    }
+  </style>
